@@ -25,7 +25,7 @@ class AccountMove(models.Model):
         self.partner_percent = 0
         self.partner_invoicing_check = False
 
-        if self.partner_id.invoice_type == 'percent':
+        if self.partner_id.invoice_type == 'percent' and self.state != 'posted':
             self.partner_invoicing_check = True
             self.partner_percent = self.partner_id.percentage
 
